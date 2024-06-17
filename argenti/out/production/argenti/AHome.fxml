@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="224.0" style="-fx-background-color: #e91e63;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" layoutY="49.0" prefHeight="40.0" prefWidth="225.0" text="Administrador">
+               <font>
+                  <Font name="Source Sans Pro Black" size="27.0" />
+               </font>
+            </Label>
+            <MFXButton layoutX="-2.0" layoutY="243.0" prefHeight="43.0" prefWidth="234.0" text="Listado">
+               <font>
+                  <Font name="Source Sans Pro Semibold" size="20.0" />
+               </font>
+            </MFXButton>
+            <MFXButton layoutY="296.0" prefHeight="43.0" prefWidth="234.0" text="Crear">
+               <font>
+                  <Font name="Source Sans Pro Semibold" size="20.0" />
+               </font>
+            </MFXButton>
+            <MFXButton layoutX="-8.0" layoutY="345.0" prefHeight="43.0" prefWidth="234.0" text="Editar">
+               <font>
+                  <Font name="Source Sans Pro Semibold" size="20.0" />
+               </font>
+            </MFXButton>
+            <MFXButton layoutX="-13.0" layoutY="702.0" prefHeight="43.0" prefWidth="249.0" text="Salir">
+               <font>
+                  <Font name="Source Sans Pro Semibold" size="20.0" />
+               </font>
+            </MFXButton>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="768.0" prefWidth="800.0" style="-fx-background-color: #FAFAFA;" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>

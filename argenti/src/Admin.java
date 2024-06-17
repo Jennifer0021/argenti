@@ -8,9 +8,9 @@ import java.io.IOException;
 public class Admin extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(User.class.getResource("Admin.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 640, 520);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(User.class.getResource("ALogin.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 768, 520);
+        stage.setTitle("Administrador");
         stage.setScene(scene);
         stage.show();
     }
