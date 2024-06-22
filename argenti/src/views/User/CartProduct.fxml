@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.User.ProductController">
+   <children>
+      <ImageView fx:id="jimg" fitHeight="159.0" fitWidth="200.0" pickOnBounds="true" smooth="false" VBox.vgrow="NEVER" />
+      <Label fx:id="jname" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" text="Nombre">
+         <font>
+            <Font name="Source Sans Pro Semibold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="jprice" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" text="Precio">
+         <font>
+            <Font name="Source Sans Pro Semibold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="jstock" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" text="Stock">
+         <font>
+            <Font name="Source Sans Pro Semibold" size="13.0" />
+         </font>
+      </Label>
+      <MFXButton fx:id="buyButton" minHeight="-Infinity" minWidth="-Infinity" onAction="#BuyProduct" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #ec407a;" text="Comprar" textFill="WHITE">
+         <font>
+            <Font name="Source Sans Pro Semibold" size="13.0" />
+         </font>
+      </MFXButton>
+      <MFXButton fx:id="deleteButton" minHeight="-Infinity" minWidth="-Infinity" onAction="#DeleteFromCart" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #4a148c;" text="Eliminar" textFill="WHITE">
+         <font>
+            <Font name="Source Sans Pro Semibold" size="13.0" />
+         </font>
+      </MFXButton>
+   </children>
+</VBox>

@@ -1,10 +1,13 @@
 package models;
 
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.ResultSet;
-import java.sql.Connection;
+import DAO.CartObject;
+import DAO.ProductObject;
+
+import java.io.InputStream;
+import java.sql.*;
+import java.util.List;
+import java.util.ArrayList;
+
 
 public class DB {
     public DB() {
@@ -74,6 +77,49 @@ public class DB {
                 SQLException e) {
             System.out.println("Error while getAll operation: " + e);
         }
+    }
+
+    public int GetUserId(String email, String password) {
+        String sql = "select * from juser where email = ? and jpassword = ?";
+        int id = 0;
+        try {
+            Connection cn = Connect();
+
+            if (cn == null) {
+                System.out.println("Error while connecting to database.");
+                return 0;
+            }
+
+            PreparedStatement pstmt = cn.prepareStatement(sql);
+
+            if (pstmt == null) {
+                System.out.println("Prepared statement is empty.");
+                return 0;
+            }
+
+            pstmt.setString(1, email);
+            pstmt.setString(2, password);
+
+            ResultSet result = pstmt.executeQuery();
+
+            if (result.next()) {
+                // Hay al menos una fila de resultados
+                System.out.println("Iterating successful.");
+                do {
+                    id = result.getInt("id");
+                    System.out.println("User id: " + id);
+                    // Puedes almacenar los IDs en una lista o hacer otro procesamiento aquí
+                } while (result.next());
+            } else {
+                // No hay filas de resultados
+                System.out.println("No results found.");
+                // Aquí puedes manejar el caso cuando no hay resultados, por ejemplo, lanzar una excepción o devolver un valor predeterminado
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error while getAll operation: " + e);
+        }
+        return id;
     }
 
     public Boolean CreateUser(String name, String lastname, String email, String password) {
@@ -225,6 +271,196 @@ public class DB {
         }
         return false;
     }
+
+    // Admin
+    public Boolean CreateProduct(String name, Float price, int stock, InputStream image) {
+        String sql = "insert into jproduct (name, price, stock, image) values (?, ?, ?, ?)";
+        try {
+            Connection cn = Connect();
+
+            if (cn == null) {
+                System.out.println("Error while connecting to database.");
+                return false;
+            }
+
+            PreparedStatement pstmt = cn.prepareStatement(sql);
+
+            if (pstmt == null) {
+                System.out.println("Prepared statement is empty.");
+                return false;
+            }
+
+
+            pstmt.setString(1, name);
+            pstmt.setFloat(2, price);
+            pstmt.setInt(3, stock);
+            pstmt.setBlob(4, image);
+
+            int result = pstmt.executeUpdate();
+
+            if (result > 0) {
+                System.out.println("Insert successfully.");
+                return true;
+            } else {
+                System.out.println("Row not inserted.");
+                return false;
+            }
+        } catch (SQLException e) {
+            System.out.println("Error while getAll operation: " + e);
+        }
+        return false;
+    }
+
+    // Product
+
+    public List<ProductObject> GetProducts() {
+        List<ProductObject> products = new ArrayList<>();
+        String sql = "SELECT id, name, stock, price, image FROM jproduct";
+
+        try (Connection conn = Connect();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                int stock = rs.getInt("stock");
+                double price = rs.getDouble("price");
+                byte[] image = rs.getBytes("image");
+
+                ProductObject product = new ProductObject(id, name, stock, price, image);
+                products.add(product);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Manejar la excepción apropiadamente
+        }
+
+        return products;
+    }
+
+    // Shopping cart
+
+    public List<CartObject> GetCart(int userId) {
+        List<CartObject> products = new ArrayList<>();
+        String sql = "select u.id as uid, p.id as pid, p.name, p.price, p.image, p.stock from jproduct as p inner join juser as u on u.id = ?";
+
+        try {
+            Connection cn = Connect();
+
+            if (cn == null) {
+                System.out.println("Error while connecting to database.");
+            }
+
+            PreparedStatement pstmt = cn.prepareStatement(sql);
+
+            if (pstmt == null) {
+                System.out.println("Prepared statement is empty.");
+            }
+
+
+            pstmt.setInt(1, userId);
+
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                int uid = rs.getInt("uid");
+                int pid = rs.getInt("pid");
+                String name = rs.getString("name");
+                int stock = rs.getInt("stock");
+                double price = rs.getDouble("price");
+                byte[] image = rs.getBytes("image");
+
+                CartObject product = new CartObject(uid, pid, name, stock, price, image);
+                products.add(product);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error while getAll operation: " + e);
+        }
+
+        return products;
+    }
+
+    // Add product to cart
+
+    public Boolean AddToCart(int userID, int productId) {
+        String sql = "insert into jcart (jproduct_id, juser_id) values (?, ?)";
+        try {
+            Connection cn = Connect();
+
+            if (cn == null) {
+                System.out.println("Error while connecting to database.");
+                return false;
+            }
+
+            PreparedStatement pstmt = cn.prepareStatement(sql);
+
+            if (pstmt == null) {
+                System.out.println("Prepared statement is empty.");
+                return false;
+            }
+
+            pstmt.setInt(1, productId);
+            pstmt.setInt(2, userID);
+
+
+            int result = pstmt.executeUpdate();
+
+            if (result > 0) {
+                System.out.println("Insert successfully.");
+                return true;
+            } else {
+                System.out.println("Row not inserted.");
+                return false;
+            }
+        } catch (SQLException e) {
+            System.out.println("Error while insert operation: " + e);
+        }
+        return false;
+    }
+
+    // Add product to cart
+
+    public Boolean AddToWishList(int userID, int productId) {
+        String sql = "insert into jwishlist (jproduct_id, juser_id) values (?, ?)";
+        try {
+            Connection cn = Connect();
+
+            if (cn == null) {
+                System.out.println("Error while connecting to database.");
+                return false;
+            }
+
+            PreparedStatement pstmt = cn.prepareStatement(sql);
+
+            if (pstmt == null) {
+                System.out.println("Prepared statement is empty.");
+                return false;
+            }
+
+            pstmt.setInt(1, productId);
+            pstmt.setInt(2, userID);
+
+
+            int result = pstmt.executeUpdate();
+
+            if (result > 0) {
+                System.out.println("Insert successfully.");
+                return true;
+            } else {
+                System.out.println("Row not inserted.");
+                return false;
+            }
+        } catch (SQLException e) {
+            System.out.println("Error while insert operation: " + e);
+        }
+        return false;
+    }
+
+
 
 }
 
