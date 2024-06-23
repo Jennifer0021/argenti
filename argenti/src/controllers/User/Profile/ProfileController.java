@@ -1,89 +1,128 @@
 package controllers.User.Profile;
 
-import DAO.CartObject;
-
+import DAO.UserObject;
+import controllers.User.Cart.CartController;
 import controllers.User.Home.HomeController;
-import controllers.User.WishListCardController;
+import controllers.User.WishList.WishListController;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.Alert;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import models.DB;
-
+import io.github.palexdev.materialfx.controls.MFXTextField;
 import java.io.IOException;
-import java.util.List;
 
 public class ProfileController {
     @FXML
-    private GridPane gridPane;
+    private MFXTextField jname;
 
     @FXML
-    private Label productLabel;
+    private MFXTextField jlastname;
 
     @FXML
-    private Label cartLabel;
+    private MFXTextField jemail;
 
     @FXML
-    private Label wishLabel;
+    private MFXTextField jpassword;
 
-    @FXML
-    private Label historyLabel;
-
-    @FXML
-    private Label profileLabel;
-
-    @FXML
-    private Label exitLabel;
-
-
-    private int userId; // Cambiado de 'id' a 'userId' para mayor claridad
+    private int userId;
 
     public void setUserId(int userId) {
         this.userId = userId;
-        // Aquí puedes realizar cualquier lógica adicional que necesites con userId
-        System.out.println("Cart Recieved userId: " + userId);
 
-        // Llama a un método para cargar los productos una vez que tengas el userId
         loadProducts();
     }
 
     private void loadProducts() {
         DB conn = new DB();
 
-        // Obtener la lista de productos desde la base de datos con el userId
-        List<CartObject> products = conn.GetWishList(this.userId);
+        UserObject user = conn.GetUserProfile(this.userId);
+        jname.setText(user.getName());
+        jlastname.setText(user.getLastname());
+        jemail.setText(user.getEmail());
+    }
 
-        // Mostrar cada producto en la interfaz gráfica
-        int column = 0;
-        int row = 1;
-        for (CartObject product : products) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/User/WishListProduct.fxml"));
-                VBox cardbox = loader.load();
-                WishListCardController cartCardController = loader.getController();
-                cartCardController.setData(product);
-                cartCardController.setUserId(userId); // Configurar userId en ProductController
+    @FXML
+    void UpdateAction(ActionEvent event) {
+        DB con = new DB();
 
-                if (column == 3) {
-                    column = 0;
-                    ++row;
-                }
+        if (jname.getText().isBlank() || jlastname.getText().isBlank() ||
+                jemail.getText().isBlank() || jpassword.getText().isBlank()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Perfil");
+            alert.setHeaderText(null);
+            alert.setContentText("Error: No puede haber campos vacios.");
+            alert.showAndWait();
+        } else {
+            Boolean isCreated = con.UpdateProfile(this.userId, jname.getText(), jlastname.getText(), jemail.getText(), jpassword.getText());
+            if (isCreated){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Perfil");
+                alert.setHeaderText(null);
+                alert.setContentText("EXito: Usuario actualizado.");
+                alert.showAndWait();
 
-                gridPane.add(cardbox, column++, row);
-                GridPane.setMargin(cardbox, new Insets(20));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                jname.setText("");
+                jlastname.setText("");
+                jemail.setText("");
+                jpassword.setText("");
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Perfil");
+                alert.setHeaderText(null);
+                alert.setContentText("Error: Usuario no actualizado.");
+                alert.showAndWait();
             }
         }
     }
 
-    public void GProduct(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
+    @FXML
+    void GoCart(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/User/CartView.fxml"));
+        Parent root = loader.load();
+
+        CartController cartController = loader.getController();
+        cartController.setUserId(this.userId);
+
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void GoHistory(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/User/History/History.fxml"));
+        Parent root = loader.load();
+
+        controllers.User.History.HistoryController cartController = loader.getController();
+        cartController.setUserId(this.userId);
+
+        Stage stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    @FXML
+    public void GoLogin(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/User/Login.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void GoProducts(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/User/Home.fxml"));
         Parent root = loader.load();
 
@@ -96,9 +135,27 @@ public class ProfileController {
         stage.show();
     }
 
-    public void GLogin(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/User/Login.fxml"));
+    @FXML
+    void GoProfile(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/User/Profile/Profile.fxml"));
         Parent root = loader.load();
+
+        ProfileController cartController = loader.getController();
+        cartController.setUserId(this.userId);
+
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void GoWishList(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/User/WishList.fxml"));
+        Parent root = loader.load();
+
+        WishListController cartController = loader.getController();
+        cartController.setUserId(this.userId);
 
         Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
