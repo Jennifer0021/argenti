@@ -15,7 +15,7 @@
          <children>
             <VBox layoutY="37.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="268.0">
                <children>
-                  <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #5c6bc0;" text="Productos" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #311b92;" text="Productos" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Source Sans Pro Semibold" size="18.0" />
                      </font></Label>
@@ -23,7 +23,7 @@
                      <font>
                         <Font name="Source Sans Pro Semibold" size="18.0" />
                      </font></Label>
-                  <Label fx:id="wishLabel" alignment="CENTER" layoutX="10.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="268.0" text="Lista de deseos" textFill="WHITE">
+                  <Label fx:id="wishLabel" alignment="CENTER" layoutX="10.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#GoToWishList" prefHeight="100.0" prefWidth="268.0" text="Lista de deseos" textFill="WHITE">
                      <font>
                         <Font name="Source Sans Pro Semibold" size="18.0" />
                      </font></Label>
@@ -35,7 +35,7 @@
                      <font>
                         <Font name="Source Sans Pro Semibold" size="18.0" />
                      </font></Label>
-                  <Label fx:id="exitLabel" alignment="CENTER" layoutX="10.0" layoutY="410.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="268.0" text="Salir" textFill="WHITE">
+                  <Label fx:id="exitLabel" alignment="CENTER" layoutX="10.0" layoutY="410.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#GoLogin" prefHeight="100.0" prefWidth="268.0" text="Salir" textFill="WHITE">
                      <font>
                         <Font name="Source Sans Pro Semibold" size="18.0" />
                      </font>

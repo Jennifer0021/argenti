@@ -1,8 +1,9 @@
-package controllers.User;
+package controllers.User.Profile;
 
 import DAO.CartObject;
 
 import controllers.User.Home.HomeController;
+import controllers.User.WishListCardController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -18,7 +19,7 @@ import models.DB;
 import java.io.IOException;
 import java.util.List;
 
-public class WishListController {
+public class ProfileController {
     @FXML
     private GridPane gridPane;
 
@@ -89,7 +90,7 @@ public class WishListController {
         HomeController homeController = loader.getController();
         homeController.setUserId(this.userId);
 
-        Stage stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -99,7 +100,7 @@ public class WishListController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/User/Login.fxml"));
         Parent root = loader.load();
 
-        Stage stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

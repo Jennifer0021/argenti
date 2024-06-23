@@ -1,8 +1,8 @@
 package controllers.User;
 
 import DAO.CartObject;
-import DAO.ProductObject;
-import javafx.event.ActionEvent;
+
+import controllers.User.Home.HomeController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -21,6 +22,10 @@ import java.util.List;
 public class CartController {
     @FXML
     private GridPane gridPane;
+
+    @FXML
+    private Label productLabel;
+
     @FXML
     private Label cartLabel;
 
@@ -42,7 +47,7 @@ public class CartController {
     public void setUserId(int userId) {
         this.userId = userId;
         // Aquí puedes realizar cualquier lógica adicional que necesites con userId
-        System.out.println("Home Recieved userId: " + userId);
+        System.out.println("Cart Recieved userId: " + userId);
 
         // Llama a un método para cargar los productos una vez que tengas el userId
         loadProducts();
@@ -59,7 +64,7 @@ public class CartController {
         int row = 1;
         for (CartObject product : products) {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/User/Product.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/User/CartProduct.fxml"));
                 VBox cardbox = loader.load();
                 CartCardController cartCardController = loader.getController();
                 cartCardController.setData(product);
@@ -78,16 +83,46 @@ public class CartController {
         }
     }
 
-    public void GoToCart(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/User/CartView.fxml"));
+    public void GProduct(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/User/Home.fxml"));
         Parent root = loader.load();
 
-        CartController cartController = loader.getController();
-        cartController.setUserId(this.userId);
+        HomeController homeController = loader.getController();
+        homeController.setUserId(this.userId);
 
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void GoWishList(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/User/WishList.fxml"));
+        Parent root = loader.load();
+
+        WishListController cartController = loader.getController();
+        cartController.setUserId(this.userId);
+
+        Stage stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+    public void GLogin(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/User/Login.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void GoProfile(MouseEvent mouseEvent) {
+    }
+
+    public void GoHistory(MouseEvent mouseEvent) {
     }
 }

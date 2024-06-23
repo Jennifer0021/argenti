@@ -345,7 +345,12 @@ public class DB {
 
     public List<CartObject> GetCart(int userId) {
         List<CartObject> products = new ArrayList<>();
-        String sql = "select u.id as uid, p.id as pid, p.name, p.price, p.image, p.stock from jproduct as p inner join juser as u on u.id = ?";
+//        String sql = "select u.id as uid, p.id as pid, p.name, p.price, p.image, p.stock from jproduct as p " +
+//                "inner join juser as u on u.id = ?";
+        String sql = "SELECT p.id AS pid, p.name AS pname, p.price, p.image, p.stock, u.id AS uid, u.name AS uname FROM jcart AS c " +
+                "INNER JOIN jproduct AS p ON c.jproduct_id = p.id " +
+                "INNER JOIN juser AS u " +
+                "ON c.juser_id = u.id WHERE c.juser_id = ?";
 
         try {
             Connection cn = Connect();
@@ -369,7 +374,52 @@ public class DB {
             while (rs.next()) {
                 int uid = rs.getInt("uid");
                 int pid = rs.getInt("pid");
-                String name = rs.getString("name");
+                String name = rs.getString("pname");
+                int stock = rs.getInt("stock");
+                double price = rs.getDouble("price");
+                byte[] image = rs.getBytes("image");
+
+                CartObject product = new CartObject(uid, pid, name, stock, price, image);
+                products.add(product);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error while getAll operation: " + e);
+        }
+
+        return products;
+    }
+
+    // Get WishList
+    public List<CartObject> GetWishList(int userId) {
+        List<CartObject> products = new ArrayList<>();
+        String sql = "SELECT p.id AS pid, p.name AS pname, p.price, p.image, p.stock, u.id AS uid, u.name AS uname FROM jwishlist AS c " +
+                "INNER JOIN jproduct AS p ON c.jproduct_id = p.id " +
+                "INNER JOIN juser AS u " +
+                "ON c.juser_id = u.id WHERE c.juser_id = ?";
+
+        try {
+            Connection cn = Connect();
+
+            if (cn == null) {
+                System.out.println("Error while connecting to database.");
+            }
+
+            PreparedStatement pstmt = cn.prepareStatement(sql);
+
+            if (pstmt == null) {
+                System.out.println("Prepared statement is empty.");
+            }
+
+
+            pstmt.setInt(1, userId);
+
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                int uid = rs.getInt("uid");
+                int pid = rs.getInt("pid");
+                String name = rs.getString("pname");
                 int stock = rs.getInt("stock");
                 double price = rs.getDouble("price");
                 byte[] image = rs.getBytes("image");

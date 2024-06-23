@@ -3,20 +3,16 @@ package controllers.User;
 import DAO.CartObject;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.scene.image.Image;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import models.DB;
 
 import java.io.ByteArrayInputStream;
-import models.DB;
-import io.github.palexdev.materialfx.controls.MFXButton;
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 
-public class CartCardController {
+public class WishListCardController {
 
     @FXML
     private ImageView jimg;
@@ -121,9 +117,14 @@ public class CartCardController {
 
     }
 
+
     public void DeleteFromCart() {
         System.out.println("nothin");
 
     }
+
+
+
+
 }
 

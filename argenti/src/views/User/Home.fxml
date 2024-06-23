@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.User.HomeController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.User.Home.HomeController">
    <left>
       <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="268.0" style="-fx-background-color: #673ab7;" BorderPane.alignment="CENTER">
          <children>
             <VBox layoutY="37.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="268.0">
                <children>
-                  <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #5c6bc0;" text="Productos" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #311b92;" text="Productos" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Source Sans Pro Semibold" size="18.0" />
                      </font></Label>
@@ -23,19 +23,19 @@
                      <font>
                         <Font name="Source Sans Pro Semibold" size="18.0" />
                      </font></Label>
-                  <Label fx:id="wishLabel" alignment="CENTER" layoutX="10.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="268.0" text="Lista de deseos" textFill="WHITE">
+                  <Label fx:id="wishLabel" alignment="CENTER" layoutX="10.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#GoToWishList" prefHeight="100.0" prefWidth="268.0" text="Lista de deseos" textFill="WHITE">
                      <font>
                         <Font name="Source Sans Pro Semibold" size="18.0" />
                      </font></Label>
-                  <Label fx:id="historyLabel" alignment="CENTER" layoutX="10.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="268.0" text="Historial de compra" textFill="WHITE">
+                  <Label fx:id="historyLabel" alignment="CENTER" layoutX="10.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#GoToHistory" prefHeight="100.0" prefWidth="268.0" text="Historial de compra" textFill="WHITE">
                      <font>
                         <Font name="Source Sans Pro Semibold" size="18.0" />
                      </font></Label>
-                  <Label fx:id="profileLabel" alignment="CENTER" layoutX="10.0" layoutY="310.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="268.0" text="Perfil" textFill="WHITE">
+                  <Label fx:id="profileLabel" alignment="CENTER" layoutX="10.0" layoutY="310.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#GoToProfile" prefHeight="100.0" prefWidth="268.0" text="Perfil" textFill="WHITE">
                      <font>
                         <Font name="Source Sans Pro Semibold" size="18.0" />
                      </font></Label>
-                  <Label fx:id="exitLabel" alignment="CENTER" layoutX="10.0" layoutY="410.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="268.0" text="Salir" textFill="WHITE">
+                  <Label fx:id="exitLabel" alignment="CENTER" layoutX="10.0" layoutY="410.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#GoLogin" prefHeight="100.0" prefWidth="268.0" text="Salir" textFill="WHITE">
                      <font>
                         <Font name="Source Sans Pro Semibold" size="18.0" />
                      </font>

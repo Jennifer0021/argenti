@@ -9,17 +9,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.User.HomeController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.User.CartController">
    <left>
       <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="268.0" style="-fx-background-color: #673ab7;" BorderPane.alignment="CENTER">
          <children>
             <VBox layoutY="37.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="268.0">
                <children>
-                  <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: 1a237e;" text="Productos" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="productLabel" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#GProduct" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #673ab7;" text="Productos" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Source Sans Pro Semibold" size="18.0" />
                      </font></Label>
-                  <Label fx:id="cartLabel" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #3f51b5;" text="Carrito" textFill="WHITE">
+                  <Label fx:id="cartLabel" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #311b92;" text="Carrito" textFill="WHITE">
                      <font>
                         <Font name="Source Sans Pro Semibold" size="18.0" />
                      </font></Label>
@@ -35,7 +35,7 @@
                      <font>
                         <Font name="Source Sans Pro Semibold" size="18.0" />
                      </font></Label>
-                  <Label fx:id="exitLabel" alignment="CENTER" layoutX="10.0" layoutY="410.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="268.0" text="Salir" textFill="WHITE">
+                  <Label fx:id="exitLabel" alignment="CENTER" layoutX="10.0" layoutY="410.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#GLogin" prefHeight="100.0" prefWidth="268.0" text="Salir" textFill="WHITE">
                      <font>
                         <Font name="Source Sans Pro Semibold" size="18.0" />
                      </font>
@@ -48,12 +48,12 @@
    <right>
       <VBox prefHeight="640.0" prefWidth="756.0" BorderPane.alignment="CENTER">
          <children>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #5c6bc0;" VBox.vgrow="ALWAYS">
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <content>
                   <GridPane fx:id="gridPane">
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
                   </GridPane>
                </content>
             </ScrollPane>
