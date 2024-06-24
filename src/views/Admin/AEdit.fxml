@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Admin.Edit.EditController">
+    <left>
+        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: #3f51b5;" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="60.0" layoutY="40.0" text="Argenti" textFill="WHITE">
+                    <font>
+                        <Font name="Source Sans Pro Black" size="24.0" />
+                    </font>
+                </Label>
+                <VBox layoutY="190.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="200.0">
+                    <children>
+                        <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #3f51b5;" text="Menu principal" textFill="WHITE">
+                            <font>
+                                <Font name="Source Sans Pro Semibold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#GoProduct" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #3f51b5;" text="Productos" textFill="WHITE">
+                            <font>
+                                <Font name="Source Sans Pro Semibold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#GoCreate" prefHeight="60.0" prefWidth="200.0" text="Crear" textFill="WHITE">
+                            <font>
+                                <Font name="Source Sans Pro Semibold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#GoEdit" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #ec407a;" text="Editar" textFill="WHITE">
+                            <font>
+                                <Font name="Source Sans Pro Semibold" size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+                <Label alignment="CENTER" layoutX="1.0" layoutY="546.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#GoLogin" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ec407a;" text="Salir" textFill="WHITE">
+                    <font>
+                        <Font name="Source Sans Pro Semibold" size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </left>
+   <right>
+      <AnchorPane prefHeight="600.0" prefWidth="577.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="148.0" layoutY="62.0" text="Editar productos">
+               <font>
+                  <Font name="Source Sans Pro Black" size="36.0" />
+               </font></Label>
+            <MFXButton layoutX="184.0" layoutY="528.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#EditProductAction" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #ffeb3b;" text="Editar producto">
+               <font>
+                  <Font name="Source Sans Pro Black" size="18.0" />
+               </font>
+            </MFXButton>
+            <MFXTextField fx:id="pname" layoutX="57.0" layoutY="260.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" />
+            <MFXTextField fx:id="pprice" layoutX="319.0" layoutY="260.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" />
+            <MFXTextField fx:id="pstock" layoutX="57.0" layoutY="385.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" />
+            <Label layoutX="56.0" layoutY="136.0" prefHeight="53.0" prefWidth="446.0" text="Porfavor rellene el formulario para actualizar los datos del producto" textOverrun="CLIP">
+               <font>
+                  <Font name="Source Sans Pro Semibold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="56.0" layoutY="207.0" prefHeight="53.0" prefWidth="200.0" text="Nombre" textOverrun="CLIP">
+               <font>
+                  <Font name="Source Sans Pro Semibold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="319.0" layoutY="207.0" prefHeight="53.0" prefWidth="200.0" text="Precio" textOverrun="CLIP">
+               <font>
+                  <Font name="Source Sans Pro Semibold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="57.0" layoutY="332.0" prefHeight="53.0" prefWidth="200.0" text="Stock" textOverrun="CLIP">
+               <font>
+                  <Font name="Source Sans Pro Semibold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="321.0" layoutY="332.0" prefHeight="53.0" prefWidth="200.0" text="Imagen" textOverrun="CLIP">
+               <font>
+                  <Font name="Source Sans Pro Semibold" size="14.0" />
+               </font>
+            </Label>
+            <MFXButton fx:id="pimage" layoutX="319.0" layoutY="385.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#UploadImageAction" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #76ff03;" text="Imagen" />
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>
