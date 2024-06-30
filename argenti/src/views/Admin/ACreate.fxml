@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import io.github.palexdev.materialfx.controls.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Admin.ACreate">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Admin.Create.CreateController">
    <left>
       <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: #3f51b5;" BorderPane.alignment="CENTER">
          <children>
@@ -21,22 +24,17 @@
             </Label>
             <VBox layoutX="1.0" layoutY="121.0" prefHeight="159.0" prefWidth="199.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #5c6bc0;" text="Menu principal">
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #5c6bc0;" text="Menu principal" textFill="WHITE">
                      <font>
                         <Font name="Source Sans Pro Semibold" size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: ec407a;" text="Crear">
+                  <Label alignment="CENTER" onMouseClicked="#GoProduct" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #5c6bc0;" text="Productos" textFill="WHITE">
                      <font>
                         <Font name="Source Sans Pro Semibold" size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #5c6bc0;" text="Editar">
-                     <font>
-                        <Font name="Source Sans Pro Semibold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #5c6bc0;" text="Listado">
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: ec407a;" text="Crear" textFill="WHITE">
                      <font>
                         <Font name="Source Sans Pro Semibold" size="18.0" />
                      </font>
@@ -51,11 +49,6 @@
          <children>
             <MFXTextField fx:id="jname" layoutX="51.0" layoutY="181.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" />
             <MFXTextField fx:id="jstock" layoutX="56.0" layoutY="284.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" />
-            <MFXButton fx:id="jimage" layoutX="220.0" layoutY="284.0" onAction="#UploadImageAction" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #9c27b0;" text="Subir Imagen">
-               <font>
-                  <Font name="Source Sans Pro Semibold" size="13.0" />
-               </font>
-            </MFXButton>
             <MFXTextField fx:id="jprice" layoutX="220.0" layoutY="181.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" />
             <Label layoutX="51.0" layoutY="142.0" text="Nombre">
                <font>
@@ -68,11 +61,6 @@
                </font>
             </Label>
             <Label layoutX="56.0" layoutY="248.0" text="Stock">
-               <font>
-                  <Font name="Source Sans Pro Semibold" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="223.0" layoutY="248.0" text="Imagen">
                <font>
                   <Font name="Source Sans Pro Semibold" size="18.0" />
                </font>
