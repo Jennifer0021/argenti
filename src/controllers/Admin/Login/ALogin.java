@@ -14,7 +14,6 @@ import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.util.Objects;
 
-import models.DB;
 public class ALogin {
     private Stage stage;
     private Scene scene;
@@ -30,31 +29,30 @@ public class ALogin {
     private Label error_label;
 
     public void AdminLoginAction(ActionEvent event) throws IOException {
-        DB con = new DB();
 
-        if (aemail.getText().isBlank() || apassword.getText().isBlank()) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Login");
-            alert.setHeaderText(null);
-            alert.setContentText("Error: No puede haber campos vacios.");
-            alert.showAndWait();
-        } else {
-            Boolean login = con.LoginAdmin(aemail.getText(), apassword.getText());
-            if (login){
-                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/Admin/AHome.fxml")));
-                Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-
-            }else {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Login");
-                alert.setHeaderText(null);
-                alert.setContentText("Error: Datos incorrectos.");
-                alert.showAndWait();
-            }
-        }
+//        if (aemail.getText().isBlank() || apassword.getText().isBlank()) {
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//            alert.setTitle("Login");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Error: No puede haber campos vacios.");
+//            alert.showAndWait();
+//        } else {
+//
+//            if (login){
+//                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/Admin/AHome.fxml")));
+//                Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//                Scene scene = new Scene(root);
+//                stage.setScene(scene);
+//                stage.show();
+//
+//            }else {
+//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//                alert.setTitle("Login");
+//                alert.setHeaderText(null);
+//                alert.setContentText("Error: Datos incorrectos.");
+//                alert.showAndWait();
+//            }
+//        }
     }
 
     public void exitAction(ActionEvent actionEvent) {

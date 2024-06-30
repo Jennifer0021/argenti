@@ -1,9 +1,5 @@
 package controllers.Admin.Home;
 
-import DAO.ProductObject;
-import controllers.Admin.Edit.EditController;
-import controllers.User.Cart.CartCardController;
-import controllers.User.Cart.CartController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -14,9 +10,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import models.DB;
 import java.io.IOException;
-import java.util.List;
 import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,30 +25,30 @@ public class AHome implements  Initializable{
     }
 
     private void loadProducts() {
-        DB conn = new DB();
 
-        List<ProductObject> products = conn.GetProducts();
 
-        int column = 0;
-        int row = 1;
-        for (ProductObject product : products) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Admin/ProductCard.fxml"));
-                VBox cardbox = loader.load();
-                ProductCard productController = loader.getController();
-                productController.setData(product);
-
-                if (column == 3) {
-                    column = 0;
-                    ++row;
-                }
-
-                gridPane.add(cardbox, column++, row);
-                GridPane.setMargin(cardbox, new Insets(15));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
+//        List<ProductObject> products = conn.GetProducts();
+//
+//        int column = 0;
+//        int row = 1;
+//        for (ProductObject product : products) {
+//            try {
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Admin/ProductCard.fxml"));
+//                VBox cardbox = loader.load();
+//                ProductCard productController = loader.getController();
+//                productController.setData(product);
+//
+//                if (column == 3) {
+//                    column = 0;
+//                    ++row;
+//                }
+//
+//                gridPane.add(cardbox, column++, row);
+//                GridPane.setMargin(cardbox, new Insets(15));
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
     }
 
     @FXML

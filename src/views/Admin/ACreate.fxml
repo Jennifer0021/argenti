@@ -49,11 +49,6 @@
          <children>
             <MFXTextField fx:id="jname" layoutX="51.0" layoutY="181.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" />
             <MFXTextField fx:id="jstock" layoutX="56.0" layoutY="284.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" />
-            <MFXButton fx:id="jimage" layoutX="220.0" layoutY="284.0" onAction="#UploadImageAction" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #9c27b0;" text="Subir Imagen">
-               <font>
-                  <Font name="Source Sans Pro Semibold" size="13.0" />
-               </font>
-            </MFXButton>
             <MFXTextField fx:id="jprice" layoutX="220.0" layoutY="181.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" />
             <Label layoutX="51.0" layoutY="142.0" text="Nombre">
                <font>
@@ -66,11 +61,6 @@
                </font>
             </Label>
             <Label layoutX="56.0" layoutY="248.0" text="Stock">
-               <font>
-                  <Font name="Source Sans Pro Semibold" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="223.0" layoutY="248.0" text="Imagen">
                <font>
                   <Font name="Source Sans Pro Semibold" size="18.0" />
                </font>
