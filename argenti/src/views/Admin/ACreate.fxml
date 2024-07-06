@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import io.github.palexdev.materialfx.controls.MFXButton?>
-<?import io.github.palexdev.materialfx.controls.MFXTextField?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Admin.Create.CreateController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <left>
       <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: #3f51b5;" BorderPane.alignment="CENTER">
          <children>
@@ -29,7 +26,7 @@
                         <Font name="Source Sans Pro Semibold" size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" onMouseClicked="#GoProduct" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #5c6bc0;" text="Productos" textFill="WHITE">
+                  <Label alignment="CENTER" onMouseClicked="#AdminGoProduct" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #5c6bc0;" text="Productos" textFill="WHITE">
                      <font>
                         <Font name="Source Sans Pro Semibold" size="18.0" />
                      </font>
@@ -65,7 +62,7 @@
                   <Font name="Source Sans Pro Semibold" size="18.0" />
                </font>
             </Label>
-            <MFXButton fx:id="jcreate_button" buttonType="RAISED" layoutX="126.0" layoutY="356.0" onAction="#AdminCreateProduct" prefHeight="30.0" prefWidth="150.0" rippleColor="WHITE" style="-fx-background-color: #e91e63;" text="Crear Producto" textAlignment="CENTER" textFill="#fff2f2">
+            <MFXButton buttonType="RAISED" layoutX="126.0" layoutY="356.0" onAction="#AdminCreateProduct" prefHeight="30.0" prefWidth="186.0" rippleColor="WHITE" style="-fx-background-color: #e91e63;" text="Subir imagen y crear" textAlignment="CENTER" textFill="#fff2f2">
                <font>
                   <Font name="Source Sans Pro Semibold" size="14.0" />
                </font>
@@ -75,7 +72,7 @@
                   <Font name="Source Sans Pro Black" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="error_label" alignment="CENTER" layoutX="49.0" layoutY="91.0" prefHeight="26.0" prefWidth="326.0">
+            <Label alignment="CENTER" layoutX="49.0" layoutY="91.0" prefHeight="26.0" prefWidth="326.0" text="Ingrese los datos del producto a crear">
                <font>
                   <Font name="Source Sans Pro Semibold" size="14.0" />
                </font>

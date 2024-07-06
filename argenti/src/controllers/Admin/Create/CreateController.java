@@ -141,12 +141,12 @@ public class CreateController {
 //        }
 //    }
 
-    public void GoProduct(MouseEvent mouseEvent) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/Admin/AHome.fxml")));
-        Stage stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+//    public void GoProduct(MouseEvent mouseEvent) throws IOException {
+//        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/Admin/AHome.fxml")));
+//        Stage stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+//        Scene scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+//    }
 }
 

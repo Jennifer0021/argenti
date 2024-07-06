@@ -7,7 +7,16 @@ public class AdminList {
         this.head = null;
     }
 
-    public void agregar(Admin admin) {
+    public void ListAdmin() {
+        AdminNode temp = head;
+        System.out.println("Lista de administradores:");
+        while (temp != null) {
+            System.out.println(temp.data.getEmail());
+            temp = temp.next;
+        }
+    }
+
+    public void AddAdmin(Admin admin) {
         AdminNode nuevoNodo = new AdminNode(admin);
         if (head == null) {
             head = nuevoNodo;
@@ -20,7 +29,7 @@ public class AdminList {
         }
     }
 
-    public Admin buscar(String email) {
+    public Admin FindAdmin(String email) {
         AdminNode temp = head;
         while (temp != null) {
             if (temp.data.getEmail().equals(email)) {
@@ -31,8 +40,8 @@ public class AdminList {
         return null;
     }
 
-    public boolean verificarCredenciales(String email, String contrasenia) {
-        Admin admin = buscar(email);
+    public boolean LoginAdmin(String email, String contrasenia) {
+        Admin admin = FindAdmin(email);
         return admin != null && admin.getContrasenia().equals(contrasenia);
     }
 }

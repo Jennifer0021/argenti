@@ -1,5 +1,11 @@
 package Lists.Product;
 
+import javafx.scene.image.Image;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class ProductList {
     public ProductNode head;
 
@@ -7,7 +13,7 @@ public class ProductList {
         this.head = null;
     }
 
-    public void agregar(Product data) {
+    public void AddProduct(Product data) {
         ProductNode nuevoNodo = new ProductNode(data);
         if (head == null) {
             head = nuevoNodo;
@@ -49,11 +55,30 @@ public class ProductList {
         return null;
     }
 
-    public void actualizar(String nombre, double precio, int stock) {
+    public void actualizar(String nombre, double precio, int stock, Image imagen) {
         Product producto = buscar(nombre);
         if (producto != null) {
             producto.setPrecio(precio);
             producto.setStock(stock);
+            producto.setImagen(imagen);
+        }
+    }
+
+    public List<Product> getAllProducts() {
+        List<Product> products = new ArrayList<>();
+        ProductNode temp = head;
+        while (temp != null) {
+            products.add(temp.data);
+            temp = temp.next;
+        }
+        return products;
+    }
+
+    public void listarProductos() {
+        ProductNode temp = head;
+        while (temp != null) {
+            System.out.println(temp.data.toString());
+            temp = temp.next;
         }
     }
 }

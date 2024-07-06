@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import io.github.palexdev.materialfx.controls.MFXButton?>
-<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
-<?import io.github.palexdev.materialfx.controls.MFXTextField?>
-<?import javafx.geometry.Insets?>
-<?import javafx.geometry.Rectangle2D?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.text.Font?>
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="768.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.User.Login.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="768.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" >
    <left>
       <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="368.0" BorderPane.alignment="CENTER">
          <children>
@@ -54,7 +49,7 @@
                   <Font name="Source Sans Pro Light" size="13.0" />
                </font>
             </MFXTextField>
-            <MFXButton fx:id="login_btn" layoutX="36.0" layoutY="448.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#LoginAction" prefHeight="40.0" prefWidth="330.0" style="-fx-background-color: #e91e63;" text="Entrar" textFill="WHITE">
+            <MFXButton layoutX="36.0" layoutY="448.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#LoginAction" prefHeight="40.0" prefWidth="330.0" style="-fx-background-color: #e91e63;" text="Entrar" textFill="WHITE">
                <font>
                   <Font name="Source Sans Pro Semibold" size="16.0" />
                </font>
@@ -63,7 +58,7 @@
                </padding>
             </MFXButton>
             <MFXPasswordField fx:id="password_field" layoutX="29.0" layoutY="369.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="332.0" />
-            <MFXButton fx:id="register_btn" layoutX="35.0" layoutY="496.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#RegisterAction" prefHeight="40.0" prefWidth="330.0" style="-fx-background-color: #9c27b0;" text="Registrarse" textFill="WHITE">
+            <MFXButton layoutX="35.0" layoutY="496.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#RegisterAction" prefHeight="40.0" prefWidth="330.0" style="-fx-background-color: #9c27b0;" text="Registrarse" textFill="WHITE">
                <font>
                   <Font name="Source Sans Pro Semibold" size="16.0" />
                </font>
@@ -71,7 +66,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </MFXButton>
-            <MFXButton fx:id="exitButton" layoutX="36.0" layoutY="546.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#ExitAction" prefHeight="40.0" prefWidth="330.0" style="-fx-background-color: #311b92;" text="Salir" textFill="WHITE">
+            <MFXButton layoutX="36.0" layoutY="546.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#GoAdminAction" prefHeight="40.0" prefWidth="330.0" style="-fx-background-color: #311b92;" text="Administrador" textFill="WHITE">
                <font>
                   <Font name="Source Sans Pro Semibold" size="16.0" />
                </font>

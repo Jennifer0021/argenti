@@ -1,14 +1,18 @@
 package Lists.Product;
 
+import javafx.scene.image.Image;
+
 public class Product {
     private String nombre;
     private double precio;
     private int stock;
+    private Image imagen;
 
-    public Product(String nombre, double precio, int stock) {
+    public Product(String nombre, double precio, int stock, Image imagen) {
         this.nombre = nombre;
         this.precio = precio;
         this.stock = stock;
+        this.imagen = imagen;
     }
 
     public String getNombre() {
@@ -35,8 +39,17 @@ public class Product {
         this.stock = stock;
     }
 
+    public Image getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(Image imagen) {
+        this.imagen = imagen;
+    }
+
     @Override
     public String toString() {
-        return nombre + " - $" + precio + " - Stock: " + stock;
+        return nombre + " - $" + precio + " - Stock: " + stock + "imagen" + imagen;
     }
 }
+

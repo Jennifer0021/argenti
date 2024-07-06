@@ -1,6 +1,5 @@
 package controllers.User.History;
 
-import DAO.HistoryObject;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -29,14 +28,14 @@ public class HistoryCard {
     public void setUserId(int userId) {
         this.userId = userId;
     }
-    public void setData(HistoryObject product){
-        Image image = new Image(new ByteArrayInputStream(product.getImage()));
-        jimg.setImage(image);
-        jimg.setFitWidth(200);
-        jimg.setFitHeight(150);
-
-        jname.setText(product.getName());
-        jprice.setText(String.valueOf(product.getPrice()));
-        jbuyDate.setText(String.valueOf(product.getBuyDate()));
-    }
+//    public void setData(HistoryObject product){
+////        Image image = new Image(new ByteArrayInputStream(product.getImage()));
+////        jimg.setImage(image);
+////        jimg.setFitWidth(200);
+////        jimg.setFitHeight(150);
+////
+////        jname.setText(product.getName());
+////        jprice.setText(String.valueOf(product.getPrice()));
+////        jbuyDate.setText(String.valueOf(product.getBuyDate()));
+//    }
 }

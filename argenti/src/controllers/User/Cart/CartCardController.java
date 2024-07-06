@@ -53,7 +53,7 @@ public class CartCardController {
 //        buyButton.setOnAction(event -> BuyProduct(product.getPid()));
 //    }
 
-    public void BuyProduct(int productId) {
+//    public void BuyProduct(int productId) {
 //        DB conn = new DB();
 //        Boolean deleted = conn.BuyProduct(productId, getUserId());
 //        Alert alert = new Alert(AlertType.INFORMATION);
@@ -81,5 +81,5 @@ public class CartCardController {
 ////        }
 ////        alert.showAndWait();
 ////    }
-//}
+}
 

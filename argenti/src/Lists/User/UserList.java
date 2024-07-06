@@ -1,5 +1,8 @@
 package Lists.User;
 
+import Lists.Admin.Admin;
+import Lists.Admin.AdminNode;
+
 public class UserList {
     public UserNode head;
 
@@ -7,7 +10,16 @@ public class UserList {
         this.head = null;
     }
 
-    public void agregar(Usuario usuario) {
+    public void ListUser() {
+        UserNode temp = head;
+        System.out.println("Lista de usuarios:");
+        while (temp != null) {
+            System.out.println(temp.data.getEmail());
+            temp = temp.next;
+        }
+    }
+
+    public void AddUser(User usuario) {
         UserNode nuevoNodo = new UserNode(usuario);
         if (head == null) {
             head = nuevoNodo;
@@ -20,7 +32,7 @@ public class UserList {
         }
     }
 
-    public User buscar(String email) {
+    public User FindUser(String email) {
         UserNode temp = head;
         while (temp != null) {
             if (temp.data.getEmail().equals(email)) {
@@ -31,8 +43,8 @@ public class UserList {
         return null;
     }
 
-    public boolean verificarCredenciales(String email, String contrasenia) {
-        User usuario = buscar(email);
+    public boolean LoginUser(String email, String contrasenia) {
+        User usuario = FindUser(email);
         return usuario != null && usuario.getContrasenia().equals(contrasenia);
     }
 }

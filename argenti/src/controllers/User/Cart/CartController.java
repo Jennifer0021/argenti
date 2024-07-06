@@ -1,6 +1,5 @@
 package controllers.User.Cart;
 
-import DAO.CartObject;
 
 import controllers.User.History.HistoryController;
 import controllers.User.Home.HomeController;
@@ -17,7 +16,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import models.DB;
 
 import java.io.IOException;
 import java.util.List;
@@ -57,33 +55,33 @@ public class CartController {
     }
 
     private void loadProducts() {
-        DB conn = new DB();
-
-        // Obtener la lista de productos desde la base de datos con el userId
-        List<CartObject> products = conn.GetCart(this.userId);
-
-        // Mostrar cada producto en la interfaz gráfica
-        int column = 0;
-        int row = 1;
-        for (CartObject product : products) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/User/CartProduct.fxml"));
-                VBox cardbox = loader.load();
-                CartCardController cartCardController = loader.getController();
-                cartCardController.setData(product);
-                cartCardController.setUserId(userId); // Configurar userId en ProductController
-
-                if (column == 3) {
-                    column = 0;
-                    ++row;
-                }
-
-                gridPane.add(cardbox, column++, row);
-                GridPane.setMargin(cardbox, new Insets(20));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
+//        DB conn = new DB();
+//
+//        // Obtener la lista de productos desde la base de datos con el userId
+//        List<CartObject> products = conn.GetCart(this.userId);
+//
+//        // Mostrar cada producto en la interfaz gráfica
+//        int column = 0;
+//        int row = 1;
+//        for (CartObject product : products) {
+//            try {
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/User/CartProduct.fxml"));
+//                VBox cardbox = loader.load();
+//                CartCardController cartCardController = loader.getController();
+//                cartCardController.setData(product);
+//                cartCardController.setUserId(userId); // Configurar userId en ProductController
+//
+//                if (column == 3) {
+//                    column = 0;
+//                    ++row;
+//                }
+//
+//                gridPane.add(cardbox, column++, row);
+//                GridPane.setMargin(cardbox, new Insets(20));
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
     }
 
     public void GProduct(javafx.scene.input.MouseEvent mouseEvent) throws IOException {

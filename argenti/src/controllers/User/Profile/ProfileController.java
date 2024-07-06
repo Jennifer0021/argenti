@@ -1,6 +1,5 @@
 package controllers.User.Profile;
 
-import DAO.UserObject;
 import controllers.User.Cart.CartController;
 import controllers.User.Home.HomeController;
 import controllers.User.WishList.WishListController;
@@ -13,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import models.DB;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import java.io.IOException;
 
@@ -39,46 +37,46 @@ public class ProfileController {
     }
 
     private void loadProducts() {
-        DB conn = new DB();
-
-        UserObject user = conn.GetUserProfile(this.userId);
-        jname.setText(user.getName());
-        jlastname.setText(user.getLastname());
-        jemail.setText(user.getEmail());
+//        DB conn = new DB();
+//
+//        UserObject user = conn.GetUserProfile(this.userId);
+//        jname.setText(user.getName());
+//        jlastname.setText(user.getLastname());
+//        jemail.setText(user.getEmail());
     }
 
     @FXML
     void UpdateAction(ActionEvent event) {
-        DB con = new DB();
-
-        if (jname.getText().isBlank() || jlastname.getText().isBlank() ||
-                jemail.getText().isBlank() || jpassword.getText().isBlank()) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Perfil");
-            alert.setHeaderText(null);
-            alert.setContentText("Error: No puede haber campos vacios.");
-            alert.showAndWait();
-        } else {
-            Boolean isCreated = con.UpdateProfile(this.userId, jname.getText(), jlastname.getText(), jemail.getText(), jpassword.getText());
-            if (isCreated){
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Perfil");
-                alert.setHeaderText(null);
-                alert.setContentText("EXito: Usuario actualizado.");
-                alert.showAndWait();
-
-                jname.setText("");
-                jlastname.setText("");
-                jemail.setText("");
-                jpassword.setText("");
-            } else {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Perfil");
-                alert.setHeaderText(null);
-                alert.setContentText("Error: Usuario no actualizado.");
-                alert.showAndWait();
-            }
-        }
+//        DB con = new DB();
+//
+//        if (jname.getText().isBlank() || jlastname.getText().isBlank() ||
+//                jemail.getText().isBlank() || jpassword.getText().isBlank()) {
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//            alert.setTitle("Perfil");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Error: No puede haber campos vacios.");
+//            alert.showAndWait();
+//        } else {
+//            Boolean isCreated = con.UpdateProfile(this.userId, jname.getText(), jlastname.getText(), jemail.getText(), jpassword.getText());
+//            if (isCreated){
+//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//                alert.setTitle("Perfil");
+//                alert.setHeaderText(null);
+//                alert.setContentText("EXito: Usuario actualizado.");
+//                alert.showAndWait();
+//
+//                jname.setText("");
+//                jlastname.setText("");
+//                jemail.setText("");
+//                jpassword.setText("");
+//            } else {
+//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//                alert.setTitle("Perfil");
+//                alert.setHeaderText(null);
+//                alert.setContentText("Error: Usuario no actualizado.");
+//                alert.showAndWait();
+//            }
+//        }
     }
 
     @FXML

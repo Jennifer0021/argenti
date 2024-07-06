@@ -1,6 +1,5 @@
 package controllers.User.History;
 
-import DAO.HistoryObject;
 import controllers.User.Cart.CartController;
 import controllers.User.Home.HomeController;
 import controllers.User.Profile.ProfileController;
@@ -15,7 +14,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import models.DB;
 
 import java.io.IOException;
 import java.util.List;
@@ -32,31 +30,31 @@ public class HistoryController {
     }
 
     private void loadProducts() {
-        DB conn = new DB();
-
-        List<HistoryObject> products = conn.GetHistory(this.userId);
-
-        int column = 0;
-        int row = 1;
-        for (HistoryObject product : products) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/User/History/HistoryCard.fxml"));
-                VBox cardbox = loader.load();
-                HistoryCard cartCardController = loader.getController();
-                cartCardController.setData(product);
-                cartCardController.setUserId(userId); // Configurar userId en ProductController
-
-                if (column == 3) {
-                    column = 0;
-                    ++row;
-                }
-
-                gridPane.add(cardbox, column++, row);
-                GridPane.setMargin(cardbox, new Insets(20));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
+//        DB conn = new DB();
+//
+//        List<HistoryObject> products = conn.GetHistory(this.userId);
+//
+//        int column = 0;
+//        int row = 1;
+//        for (HistoryObject product : products) {
+//            try {
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/User/History/HistoryCard.fxml"));
+//                VBox cardbox = loader.load();
+//                HistoryCard cartCardController = loader.getController();
+//                cartCardController.setData(product);
+//                cartCardController.setUserId(userId); // Configurar userId en ProductController
+//
+//                if (column == 3) {
+//                    column = 0;
+//                    ++row;
+//                }
+//
+//                gridPane.add(cardbox, column++, row);
+//                GridPane.setMargin(cardbox, new Insets(20));
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
     }
 
     @FXML
