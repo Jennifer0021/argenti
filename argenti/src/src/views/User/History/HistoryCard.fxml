@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="220.0" style="-fx-background-radius: 20px; -fx-background-color: #90a4ae;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ImageView fx:id="historyimage" fitHeight="159.0" fitWidth="200.0" pickOnBounds="true" smooth="false" VBox.vgrow="NEVER" />
+        <Label fx:id="historyname" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" text="Nombre">
+            <font>
+                <Font name="Source Sans Pro Semibold" size="13.0" />
+            </font>
+        </Label>
+        <Label fx:id="historyprice" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" text="Precio">
+            <font>
+                <Font name="Source Sans Pro Semibold" size="13.0" />
+            </font>
+        </Label>
+        <Label fx:id="historyBuyDate" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" text="Fecha de compra">
+            <font>
+                <Font name="Source Sans Pro Semibold" size="13.0" />
+            </font>
+        </Label>
+    </children>
+</VBox>

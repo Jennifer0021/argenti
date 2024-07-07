@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" >
+   <left>
+      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="368.0" prefWidth="368.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="600.0" fitWidth="368.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/1.jpg" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: FAFAFAFA;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="128.0" layoutY="44.0" text="Argenti">
+               <font>
+                  <Font name="Source Sans Pro Black" size="40.0" />
+               </font>
+            </Label>
+            <Label layoutX="43.0" layoutY="102.0" />
+            <MFXTextField fx:id="uname" layoutX="45.0" layoutY="197.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" />
+            <MFXPasswordField fx:id="upassword" layoutX="46.0" layoutY="372.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="316.0" />
+            <Label layoutX="45.0" layoutY="168.0" text="Nombre">
+               <font>
+                  <Font name="Source Sans Pro Light" size="16.0" />
+               </font>
+            </Label>
+            <MFXTextField fx:id="ulastname" layoutX="212.0" layoutY="197.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" />
+            <MFXTextField fx:id="uemail" layoutX="46.0" layoutY="279.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="316.0" />
+            <MFXButton layoutX="46.0" layoutY="427.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#RegisterUserAction" prefHeight="40.0" prefWidth="316.0" style="-fx-background-color: e91e63;" text="Registrarse" textFill="WHITE">
+               <font>
+                  <Font name="Source Sans Pro Semibold" size="16.0" />
+               </font></MFXButton>
+            <Label layoutX="212.0" layoutY="168.0" text="Apellido">
+               <font>
+                  <Font name="Source Sans Pro Light" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="44.0" layoutY="248.0" text="Correo">
+               <font>
+                  <Font name="Source Sans Pro Light" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="44.0" layoutY="340.0" text="Contraseña">
+               <font>
+                  <Font name="Source Sans Pro Light" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="39.0" layoutY="120.0" text="Regístrate para acceder a todos nuestos beneficios.">
+               <font>
+                  <Font name="Source Sans Pro Light" size="16.0" />
+               </font>
+            </Label>
+            <MFXButton layoutX="46.0" layoutY="489.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#GoLoginAction" prefHeight="40.0" prefWidth="316.0" style="-fx-background-color: #9c27b0;" text="Volver" textFill="WHITE">
+               <font>
+                  <Font name="Source Sans Pro Semibold" size="16.0" />
+               </font>
+            </MFXButton>
+            <MFXButton layoutX="46.0" layoutY="546.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#ExitAction" prefHeight="40.0" prefWidth="316.0" style="-fx-background-color: #76ff03;" text="Salir" textFill="WHITE">
+               <font>
+                  <Font name="Source Sans Pro Semibold" size="16.0" />
+               </font>
+            </MFXButton>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

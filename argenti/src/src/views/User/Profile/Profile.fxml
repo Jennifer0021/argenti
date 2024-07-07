@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <left>
+        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="268.0" style="-fx-background-color: #673ab7;" BorderPane.alignment="CENTER">
+            <children>
+                <VBox layoutY="37.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="268.0">
+                    <children>
+                        <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#HomeGoProduct" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #673ab7;" text="Productos" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font name="Source Sans Pro Semibold" size="18.0" />
+                            </font></Label>
+                        <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#GoToCart" prefHeight="100.0" prefWidth="268.0" text="Carrito" textFill="WHITE">
+                            <font>
+                                <Font name="Source Sans Pro Semibold" size="18.0" />
+                            </font></Label>
+                        <Label alignment="CENTER" layoutX="10.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#GoToWishList" prefHeight="100.0" prefWidth="268.0" text="Lista de deseos" textFill="WHITE">
+                            <font>
+                                <Font name="Source Sans Pro Semibold" size="18.0" />
+                            </font></Label>
+                        <Label alignment="CENTER" layoutX="10.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#GoToHistory" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #673ab7;" text="Historial de compra" textFill="WHITE">
+                            <font>
+                                <Font name="Source Sans Pro Semibold" size="18.0" />
+                            </font></Label>
+                        <Label alignment="CENTER" layoutX="10.0" layoutY="310.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#GoToProfile" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #311b92;" text="Perfil" textFill="WHITE">
+                            <font>
+                                <Font name="Source Sans Pro Semibold" size="18.0" />
+                            </font></Label>
+                        <Label alignment="CENTER" layoutX="10.0" layoutY="410.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#GoLogin" prefHeight="100.0" prefWidth="268.0" text="Salir" textFill="WHITE">
+                            <font>
+                                <Font name="Source Sans Pro Semibold" size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </left>
+   <right>
+      <AnchorPane prefHeight="640.0" prefWidth="503.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="146.0" layoutY="67.0" text="Actualizar datos">
+               <font>
+                  <Font name="Source Sans Pro Semibold" size="30.0" />
+               </font>
+            </Label>
+            <MFXButton layoutX="176.0" layoutY="569.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#UpdateProfileAction" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #ffff00;" text="Actualizar" textFill="WHITE">
+               <font>
+                  <Font name="Source Sans Pro Black" size="16.0" />
+               </font>
+            </MFXButton>
+            <MFXTextField fx:id="profilename" layoutX="56.0" layoutY="260.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" />
+            <MFXTextField fx:id="profilelastname" layoutX="280.0" layoutY="260.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" />
+            <MFXTextField fx:id="profileemail" editable="false" layoutX="56.0" layoutY="362.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="376.0" />
+            <Label layoutX="60.0" layoutY="144.0" prefHeight="55.0" prefWidth="372.0" text="Rellene el formulario para actualizar sus datos">
+               <font>
+                  <Font name="Source Sans Pro Semibold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="56.0" layoutY="205.0" prefHeight="55.0" prefWidth="150.0" text="Nombre">
+               <font>
+                  <Font name="Source Sans Pro Semibold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="280.0" layoutY="205.0" prefHeight="55.0" prefWidth="150.0" text="Apellido">
+               <font>
+                  <Font name="Source Sans Pro Semibold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="56.0" layoutY="307.0" prefHeight="55.0" prefWidth="150.0" text="Email">
+               <font>
+                  <Font name="Source Sans Pro Semibold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="56.0" layoutY="415.0" prefHeight="55.0" prefWidth="150.0" text="Contrasenia">
+               <font>
+                  <Font name="Source Sans Pro Semibold" size="16.0" />
+               </font>
+            </Label>
+            <MFXPasswordField fx:id="profilepassword" layoutX="56.0" layoutY="483.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="376.0" />
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>
